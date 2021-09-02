@@ -14,26 +14,22 @@ class APIService {
         let url = URL(string: "https://rickandmortyapi.com/api/character")!
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-          if let error = error {
-            print("Error fetching data. \(error)")
-            
-            return
-          }
-          
-          if let data = data {
-            let decoder = JSONDecoder()
-            
-            do {
-              let results = try decoder.decode(Results.self, from: data)
-
-              
-              completionHandler(data, error, results.results)
-            } catch {
-              print("Error decoding data. \(error)")
+            if let error = error {
+                print("Error fetching data. \(error)")
+                return
             }
-          }
+            
+            if let data = data {
+                let decoder = JSONDecoder()
+                do {
+                    let results = try decoder.decode(Results.self, from: data)
+                    completionHandler(data, error, results.results)
+                } catch {
+                    print("Error decoding data. \(error)")
+                }
+            }
         }
         
         task.resume()
-      }
     }
+}

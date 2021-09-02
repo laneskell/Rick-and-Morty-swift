@@ -10,6 +10,7 @@ import UIKit
 
 class CharacterDetailsVC: UIViewController {
     
+    // MARK: - Outlets
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var speciesLabel: UILabel!
@@ -17,40 +18,41 @@ class CharacterDetailsVC: UIViewController {
     @IBOutlet weak var genderLabel: UILabel!
     
     var character: CharacterModel!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         applyVisuals()
         updateInformation()
-        
-       
     }
-    // MARK: - Helpers
     
     private func updateInformation() {
-        
         nameLabel.text = character.name
         speciesLabel.text = character.species
         statusLabel.text = character.status
         genderLabel.text = character.gender
-        
-        let url = URL(string: character!.image)
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: url!)
-            DispatchQueue.main.async {
-            self.characterImage.image = UIImage(data: data!)
-            }
-        }
+        CharacterPresenter.ConvertImageUrl(urlImage: character!.image,
+                                          imageView: characterImage)
         
     }
     
+    // MARK: - Helpers
     private func applyVisuals() {
-   
-        nameLabel.textColor = .red
+        CharacterPresenter.LabelStyle(textColor: .accentColor,
+                                      fontSize: 28.0,
+                                      weight: .bold,
+                                      to: nameLabel)
         
+        CharacterPresenter.LabelStyle(textColor: .lightColor,
+                                      fontSize: 20.0,
+                                      weight: .medium,
+                                      to: speciesLabel,statusLabel, genderLabel)
+        
+        CharacterPresenter.StatusColor(status: character.status, label: statusLabel)
+             
+        view.backgroundColor = .secondaryColor
+        characterImage.layer.cornerRadius = characterImage.frame.height / 2
+
     }
-    
-    
+
 }
 

@@ -7,29 +7,38 @@
 
 import UIKit
 
-class characterCell: UITableViewCell {
+class CharacterCell: UITableViewCell {
+    
+    // MARK: - Outlets
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var speciesLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var containerView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        ApplyVisual()
     }
     
-    func downloadImage(urlImage:String) {
-        if let url = URL(string: urlImage) {
-            let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                guard let data = data, error == nil else { return }
-                DispatchQueue.main.async {
-                    self.characterImage.image = UIImage(data: data)
-                }
-            }
-            task.resume()
-        }
+    // MARK: - Helpers
+    func ApplyVisual(){
+        backgroundColor = .primaryColor
+        selectionStyle = .none
+        containerView.backgroundColor = .secondaryColor
+        containerView.layer.cornerRadius = 8
+        containerView.clipsToBounds = true
+        
+        CharacterPresenter.LabelStyle(textColor: .accentColor,
+                                      fontSize: 20.0,
+                                      weight: .bold,
+                                      to: nameLabel)
+        
+        CharacterPresenter.LabelStyle(textColor: .lightColor,
+                                      fontSize: 16.0,
+                                      weight: .medium,
+                                      to: speciesLabel, statusLabel)
+        
     }
+    
 }
