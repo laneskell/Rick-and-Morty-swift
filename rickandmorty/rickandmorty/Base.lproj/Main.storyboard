@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -48,10 +49,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zYY-Wh-iQA">
-                                <rect key="frame" x="10" y="94" width="394" height="758"/>
+                                <rect key="frame" x="10" y="54" width="394" height="798"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="x9t-Je-YFa">
-                                        <rect key="frame" x="41.5" y="0.0" width="311" height="758"/>
+                                        <rect key="frame" x="41.5" y="60" width="311" height="678"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tvp-J4-JZD">
                                                 <rect key="frame" x="10" y="0.0" width="291" height="291"/>
@@ -60,7 +61,7 @@
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4A-Zp-jI8">
-                                                <rect key="frame" x="10" y="309" width="291" height="449"/>
+                                                <rect key="frame" x="10" y="309" width="291" height="369"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Uy-Za-mqG">
                                                         <rect key="frame" x="0.0" y="15" width="291" height="20.5"/>
@@ -110,10 +111,26 @@
                                             <constraint firstItem="c4A-Zp-jI8" firstAttribute="leading" secondItem="x9t-Je-YFa" secondAttribute="leading" constant="10" id="kxu-ib-Wfo"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCH-QR-LUW">
+                                        <rect key="frame" x="20" y="10" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="TPF-3h-D3e"/>
+                                            <constraint firstAttribute="height" constant="30" id="szS-AD-Mfp"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissButton:" destination="JI5-Pp-9RJ" eventType="touchUpInside" id="E9G-1c-dm2"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="x9t-Je-YFa" firstAttribute="top" secondItem="zYY-Wh-iQA" secondAttribute="top" id="N2q-0i-hBi"/>
+                                    <constraint firstItem="xCH-QR-LUW" firstAttribute="top" secondItem="zYY-Wh-iQA" secondAttribute="top" constant="10" id="MhP-DH-u2b"/>
+                                    <constraint firstItem="x9t-Je-YFa" firstAttribute="top" secondItem="zYY-Wh-iQA" secondAttribute="top" constant="60" id="N2q-0i-hBi"/>
                                     <constraint firstItem="x9t-Je-YFa" firstAttribute="centerY" secondItem="zYY-Wh-iQA" secondAttribute="centerY" id="XFs-f7-VR2"/>
+                                    <constraint firstItem="xCH-QR-LUW" firstAttribute="leading" secondItem="zYY-Wh-iQA" secondAttribute="leading" constant="20" id="gVQ-6H-21j"/>
                                     <constraint firstItem="x9t-Je-YFa" firstAttribute="leading" secondItem="zYY-Wh-iQA" secondAttribute="leading" constant="41.5" id="hZq-eZ-cOA"/>
                                     <constraint firstItem="x9t-Je-YFa" firstAttribute="centerX" secondItem="zYY-Wh-iQA" secondAttribute="centerX" id="y9D-VM-Brh"/>
                                 </constraints>
@@ -122,7 +139,7 @@
                         <viewLayoutGuide key="safeArea" id="VCf-x0-zwY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="zYY-Wh-iQA" firstAttribute="top" secondItem="VCf-x0-zwY" secondAttribute="top" constant="50" id="R8A-QT-Ymf"/>
+                            <constraint firstItem="zYY-Wh-iQA" firstAttribute="top" secondItem="VCf-x0-zwY" secondAttribute="top" constant="10" id="R8A-QT-Ymf"/>
                             <constraint firstItem="VCf-x0-zwY" firstAttribute="bottom" secondItem="zYY-Wh-iQA" secondAttribute="bottom" constant="10" id="fN2-UC-nmw"/>
                             <constraint firstItem="zYY-Wh-iQA" firstAttribute="leading" secondItem="VCf-x0-zwY" secondAttribute="leading" constant="10" id="mAx-MP-oCF"/>
                             <constraint firstItem="VCf-x0-zwY" firstAttribute="trailing" secondItem="zYY-Wh-iQA" secondAttribute="trailing" constant="10" id="uMe-rt-QvH"/>
@@ -164,6 +181,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

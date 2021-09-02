@@ -35,6 +35,10 @@ class CharacterDetailsVC: UIViewController {
         
     }
     
+    @IBAction func dismissButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     // MARK: - Helpers
     private func applyVisuals() {
         CharacterPresenter.LabelStyle(textColor: .accentColor,
@@ -50,7 +54,7 @@ class CharacterDetailsVC: UIViewController {
         CharacterPresenter.StatusColor(status: character.status, label: statusLabel)
              
         view.backgroundColor = .secondaryColor
-        characterImage.layer.cornerRadius = characterImage.frame.height / 2
+        characterImage.layer.cornerRadius = 25
 
     }
 
