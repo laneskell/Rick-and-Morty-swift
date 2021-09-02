@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "CharacterViewModel.viewDidLoad():CharactersViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "arrayCharacteres">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CharacterViewModel.loadCharacter():CharactersViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "arrayCharacteres">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in CharacterViewModel.loadCharacter():CharactersViewModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in static APIService.getCharacteres(completion:):APIService.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "arrayCharacteres">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
